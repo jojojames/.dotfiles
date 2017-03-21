@@ -1,0 +1,38 @@
+snippet puclx
+    public class ${1:`Filename()`} extends ${2:Parent} {
+        public `Filename()`() {
+            //Initialize code here
+            ${3}
+        }
+
+    }
+endsnippet
+
+snippet fun 
+    ${1:void} ${2:method}(${3}) {
+        //Write function code here
+        ${3}
+    }
+endsnippet
+
+snippet pufun 
+    public ${1:void} ${2:method}(${3}) {
+        //Write function code here
+        ${3}
+    }
+endsnippet
+
+snippet prfun 
+    private ${1:void} ${2:method}(${3}) {
+        //Write function code here
+        ${3}
+    }
+endsnippet
+
+snippet SwingU
+    SwingUtilities.invokeLater(new Runnable() {
+        public void run() {
+            ${1}
+        }
+    });
+endsnippet
