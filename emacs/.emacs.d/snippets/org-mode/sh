@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: sh
+# key: sh_
+# --
+#+begin_src sh :tangle yes
+$0
+#+end_src

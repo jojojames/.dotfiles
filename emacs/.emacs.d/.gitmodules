@@ -1,0 +1,51 @@
+[submodule "fork/smartparens"]
+    path = fork/smartparens
+    url = https://github.com/jojojames/smartparens.git
+[submodule "fork/motion-mode"]
+    path = fork/motion-mode
+    url = https://github.com/jojojames/motion-mode.git
+[submodule "fork/xcode-mode"]
+    path = fork/xcode-mode
+    url = https://github.com/jojojames/xcode-mode.git
+[submodule "fork/omnisharp-server"]
+    path = fork/omnisharp-server
+    url = https://github.com/jojojames/omnisharp-server
+[submodule "fork/company-mode"]
+    path = fork/company-mode
+    url = https://github.com/jojojames/company-mode
+[submodule "me/leiningen-wrapper"]
+    path = me/leiningen-wrapper
+    url = https://github.com/jojojames/leiningen-wrapper
+[submodule "fork/irony-mode"]
+    path = fork/irony-mode
+    url = https://github.com/jojojames/irony-mode
+[submodule "fork/company-distel"]
+	path = fork/company-distel
+	url = https://github.com/jojojames/company-distel
+[submodule "fork/distel"]
+	path = fork/distel
+	url = https://github.com/jojojames/distel
+[submodule "fork/yasnippet-snippets"]
+	path = fork/yasnippet-snippets
+	url = https://github.com/jojojames/yasnippet-snippets
+[submodule "fork/ycmd"]
+	path = fork/ycmd
+	url = https://github.com/jojojames/ycmd
+[submodule "fork/all-the-icons.el"]
+	path = fork/all-the-icons.el
+	url = https://github.com/jojojames/all-the-icons.el
+[submodule "fork/emacs-neotree"]
+	path = fork/emacs-neotree
+	url = https://github.com/jojojames/emacs-neotree
+[submodule "fork/lenlen-theme"]
+	path = fork/lenlen-theme
+	url = https://github.com/jojojames/lenlen-theme
+[submodule "fork/gpicker"]
+	path = fork/gpicker
+	url = https://github.com/jojojames/gpicker
+[submodule "fork/omnisharp-roslyn"]
+	path = fork/omnisharp-roslyn
+	url = https://github.com/jojojames/omnisharp-roslyn
+[submodule "fork/evil"]
+	path = fork/evil
+	url = https://github.com/jojojames/evil

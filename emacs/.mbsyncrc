@@ -1,0 +1,126 @@
+################################################################################
+# Gmail
+################################################################################
+IMAPAccount gmail
+# Address to connect to
+Host imap.gmail.com
+User ja.nguyen@gmail.com
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine imap.gmail.com login ja.nguyen@gmail.com/ {print $NF}'"
+Port 993
+SSLType IMAPS
+AuthMechs LOGIN
+CertificateFile /usr/local/etc/openssl/cert.pem
+    
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+# The trailing "/" is important
+Path ~/Mail/gmail/
+Inbox ~/Mail/gmail/inbox
+
+Channel gmail-inbox
+Master :gmail-remote:
+Slave :gmail-local:
+Patterns "INBOX" "Arch*"
+Create Both
+Expunge Both
+SyncState *
+
+Channel gmail-trash
+Master :gmail-remote:"[Gmail]/Trash"
+Slave :gmail-local:trash
+Create Both
+Expunge Both
+SyncState *
+
+Channel gmail-sent
+Master :gmail-remote:"[Gmail]/Sent Mail"
+Slave :gmail-local:sent
+Create Both
+Expunge Both
+SyncState *
+
+Channel gmail-starred
+Master :gmail-remote:"[Gmail]/Starred"
+Slave :gmail-local:starred
+Create Both
+Expunge Both
+SyncState *
+
+Channel gmail-all
+Master :gmail-remote:"[Gmail]/All Mail"
+Slave :gmail-local:all
+Create Both
+Expunge Both
+SyncState *
+
+# GROUPS PUT TOGETHER CHANNELS, SO THAT WE CAN INVOKE
+# MBSYNC ON A GROUP TO SYNC ALL CHANNELS
+#
+# FOR INSTANCE: "mbsync gmail" GETS MAIL FROM 
+# "gmail-inbox", "gmail-sent", and "gmail-trash"
+#
+Group gmail
+Channel gmail-inbox
+Channel gmail-sent
+Channel gmail-trash
+Channel gmail-starred
+Channel gmail-all
+
+################################################################################
+# Fastmail
+################################################################################
+IMAPAccount fastmail
+Host imap.fastmail.com
+Port 993
+User jamesn@fastmail.com
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine imap.fastmail.com login jamesn@fastmail.com/ {print $NF}'"
+SSLType IMAPS
+AuthMechs LOGIN
+CertificateFile /usr/local/etc/openssl/cert.pem
+
+IMAPStore fastmail-remote
+Account fastmail
+
+MaildirStore fastmail-local
+# The trailing "/" is meaningful
+Path ~/Mail/fastmail/
+Inbox ~/Mail/fastmail/inbox
+
+Channel fastmail
+Master :fastmail-remote:
+Slave :fastmail-local:
+Patterns *
+Create Slave
+Sync All
+Expunge Both
+SyncState *
+
+################################################################################
+# Tableau
+################################################################################
+IMAPAccount tableau
+Host outlook.office365.com
+Port 993
+User jnguyen@tableau.com
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine outlook.office365.com login jnguyen@tableau.com/ {print $NF}'"
+SSLType IMAPS
+AuthMechs LOGIN
+CertificateFile /usr/local/etc/openssl/cert.pem
+
+IMAPStore tableau-remote
+Account tableau
+
+MaildirStore tableau-local
+Path ~/Mail/tableau/
+Inbox ~/Mail/tableau/inbox
+
+Channel tableau
+Master :tableau-remote:
+Slave :tableau-local:
+Patterns "INBOX" "Reviews" "Sent Items" "TFS" "Test Results" "Builds"
+Create Slave
+Sync All
+Expunge Both
+SyncState *
